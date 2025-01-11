@@ -35,32 +35,40 @@ const Homepage = () => {
         borderWidth="1px"
         justifyItems="center"
       >
-        <Tabs.Root defaultValue="Log-In" variant="plain">
-          <Tabs.List bg="bg.muted" rounded="l3" p="1">
+        <Tabs.Root defaultValue="Log-In" variant="unstyled">
+          <Tabs.List display="flex" gap="4" justifyContent="center" p="2">
             <Tabs.Trigger
               value="Log-In"
-              fontSize="lg" // Adjust the font size
-              p="8"
-              py='0'         // Adjust padding to make the button larger
-              h="50px"      // Adjust height for larger button
-              borderRadius="md" // Optional: add rounded corners
+              fontSize="lg"
+              fontWeight="semibold"
+              p="4"
+              h="50px"
+              borderRadius="md"
+              bg="teal.500"
+              color="white"
+              _hover={{ bg: "teal.600" }}
+              _selected={{ bg: "teal.700", boxShadow: "md" }}
             >
-              <LuUser />
+              <LuUser style={{ marginRight: "8px" }} />
               Log-In
             </Tabs.Trigger>
             <Tabs.Trigger
               value="Sign-Up"
-              fontSize="lg" // Adjust the font size
-              p="8"  
-              py='0'       // Adjust padding to make the button larger
-              h="50px"      // Adjust height for larger button
-              borderRadius="md" // Optional: add rounded corners
+              fontSize="lg"
+              fontWeight="semibold"
+              p="4"
+              h="50px"
+              borderRadius="md"
+              bg="blue.500"
+              color="white"
+              _hover={{ bg: "blue.600" }}
+              _selected={{ bg: "blue.700", boxShadow: "md" }}
             >
-              <LuUser />
+              <LuUser style={{ marginRight: "8px" }} />
               Sign-Up
             </Tabs.Trigger>
-            <Tabs.Indicator rounded="l2" />
           </Tabs.List>
+          <Tabs.Indicator rounded="md" bg="gray.200" height="3px" />
           <Tabs.Content color="black" value="Log-In">
             <Box d="flex" justifyContent="center">
               <Login />

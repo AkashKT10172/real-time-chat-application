@@ -90,7 +90,7 @@ const Signup = () => {
           />
         </InputGroup>
       </Field>
-      <Field label="Email Address" errorText="This field is required">
+      <Field label="Upload A Picture" errorText="This field is required">
         <Input
           type="file"
           required
@@ -107,16 +107,11 @@ const Signup = () => {
         width="100%"
         backgroundColor="black"
         color="white"
-        border="2px solid black"
+        border="2px solid teal.600"
         borderRadius="md"
-        _hover={{
-          backgroundColor: "gray.800", // Darker shade on hover
-          borderColor: "gray.800", // Darker border color on hover
-        }}
-        _active={{
-          backgroundColor: "gray.900", // Even darker shade when active
-          borderColor: "gray.900", // Darker border color when active
-        }}
+        bg="teal.500"
+        _hover={{ bg: "teal.600" }}
+        _selected={{ bg: "teal.700", boxShadow: "md" }}
         style={{ marginTop: 15 }}
         onClick={submitHandler}
       >

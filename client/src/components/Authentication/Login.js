@@ -65,17 +65,12 @@ const Login = () => {
         colorScheme="black"
         width="100%"
         backgroundColor="black"
-        color="white"
-        border="2px solid black"
+        border="2px solid blue.500"
         borderRadius="md"
-        _hover={{
-          backgroundColor: "gray.800", // Darker shade on hover
-          borderColor: "gray.800", // Darker border color on hover
-        }}
-        _active={{
-          backgroundColor: "gray.900", // Even darker shade when active
-          borderColor: "gray.900", // Darker border color when active
-        }}
+        bg="blue.500"
+        color="white"
+        _hover={{ bg: "blue.600" }}
+        _selected={{ bg: "blue.700", boxShadow: "md" }}
         style={{ marginTop: 15 }}
         onClick={submitHandler}
       >
@@ -85,17 +80,12 @@ const Login = () => {
         colorScheme="black"
         width="100%"
         backgroundColor="black"
-        color="white"
-        border="2px solid black"
+        border="2px solid red.500"
         borderRadius="md"
-        _hover={{
-          backgroundColor: "gray.800", // Darker shade on hover
-          borderColor: "gray.800", // Darker border color on hover
-        }}
-        _active={{
-          backgroundColor: "gray.900", // Even darker shade when active
-          borderColor: "gray.900", // Darker border color when active
-        }}
+        bg="red.500"
+        color="white"
+        _hover={{ bg: "red.600" }}
+        _selected={{ bg: "red.700", boxShadow: "md" }}
         style={{ marginTop: 0 }}
         onClick={guestHandler}
       >
