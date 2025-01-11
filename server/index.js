@@ -3,9 +3,12 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 
+const connectToMongo = require('./db');
+connectToMongo();
+ 
 const PORT = process.env.PORT;
 const chats = require('./data');
-
+ 
 app.get('/', (req, res) => {
     res.send("I am the Danger!");
 });
