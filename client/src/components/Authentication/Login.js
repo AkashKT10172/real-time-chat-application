@@ -2,12 +2,17 @@ import { VStack, Input, Button } from "@chakra-ui/react";
 import { Field } from "../ui/field";
 import { InputGroup } from "../ui/input-group";
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { toaster } from "../ui/toaster";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
   const [pass, setPass] = useState("password");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleShow = () => {
     setShow((prevShow) => !prevShow); // Toggle state
@@ -18,14 +23,48 @@ const Login = () => {
     }
   };
 
-  const submitHandler = () => {
-    alert("Hello");
+  const submitHandler = async () => {
+    setLoading(true);
+    if (!email || !password) {
+      toaster.create({
+        title: "Please Fill All the fields!",
+        type: "error",
+      });
+      setLoading(false);
+      return;
+    }
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+      const { data } = await axios.post(
+        "/api/user/login",
+        { email, password },
+        config
+      );
+      toaster.create({
+        title: `Login Successful`,
+        type: "success",
+      });
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      setLoading(false);
+      navigate("/chats");
+    } catch (error) {
+      console.log(error.response.data.message);
+      toaster.create({
+        title: "Failed to create User!",
+        type: "error",
+      });
+      setLoading(false);
+    }
   };
   const guestHandler = () => {
     setEmail("guest@gmail.com");
     setPass("12345678");
     submitHandler();
-  }
+  };
   return (
     <VStack spacing="5px" color="black">
       <Field label="Email Address" errorText="This field is required">
