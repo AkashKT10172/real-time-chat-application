@@ -3,6 +3,7 @@ import { Container, Box, Text, Tabs } from "@chakra-ui/react";
 import { LuUser } from "react-icons/lu";
 import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
+import Background from "../components/ui/background.jpg"
 
 const Homepage = () => {
   return (
