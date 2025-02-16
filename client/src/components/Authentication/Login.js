@@ -54,16 +54,17 @@ const Login = () => {
     } catch (error) {
       console.log(error.response.data.message);
       toaster.create({
-        title: "Failed to create User!",
+        title: "Invalid User!",
         type: "error",
       });
       setLoading(false);
     }
   };
   const guestHandler = () => {
-    setEmail("guest@gmail.com");
-    setPass("12345678");
-    submitHandler();
+    setEmail("guest-user@chatabit.com");
+    setPassword("12345678");
+    console.log(email);
+    console.log(password)
   };
   return (
     <VStack spacing="5px" color="black">
@@ -72,6 +73,7 @@ const Login = () => {
           placeholder="Enter Your Email Address"
           required
           width="100%"
+          value={email}
           onChange={(e) => {
             setEmail(e.target.value);
           }}
@@ -94,6 +96,7 @@ const Login = () => {
             required
             width="100%"
             type={pass}
+            value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
