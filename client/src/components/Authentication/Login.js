@@ -1,7 +1,7 @@
 import { VStack, Input, Button } from "@chakra-ui/react";
 import { Field } from "../ui/field";
 import { InputGroup } from "../ui/input-group";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toaster } from "../ui/toaster";
@@ -60,12 +60,18 @@ const Login = () => {
       setLoading(false);
     }
   };
+  
+  useEffect(() => {
+    if (email === "guest-user@chatabit.com" && password === "12345678") {
+      submitHandler();
+    }
+  }, [email, password]);
+
   const guestHandler = () => {
     setEmail("guest-user@chatabit.com");
     setPassword("12345678");
-    console.log(email);
-    console.log(password)
   };
+
   return (
     <VStack spacing="5px" color="black">
       <Field label="Email Address" errorText="This field is required">
